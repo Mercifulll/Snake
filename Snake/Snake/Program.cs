@@ -11,6 +11,7 @@ namespace Snake
     {
         static void Main(string[] args)
         {
+            int score = 0;
             LineInstaller line = new LineInstaller();
             line.PrintShapes();
 
@@ -21,6 +22,7 @@ namespace Snake
             snake.CreateSnake(5, new Point(5, 5, Convert.ToChar(4)), Direction.Right);
             snake.PrintLine();
 
+            Score.GetScore(score);
 
             while (true)
             {
@@ -30,6 +32,9 @@ namespace Snake
                 }
                 if (snake.Eat(food))
                 {
+                    score++;
+                    Score.GetScore(score);
+
                     food = FoodFactory.RandFood(119, 20, Convert.ToChar(176));
                     food.PrintPoint();
                 }
@@ -42,9 +47,8 @@ namespace Snake
                     snake.Press(key.Key);
                 }
             }
-
-            Console.WriteLine("Game Over");
-            //ConsoleKeyInfo key = Console.ReadKey();
+            Console.Clear();
+            Console.WriteLine($"Game Over\nYour score: {score}");
 
         }
     }
