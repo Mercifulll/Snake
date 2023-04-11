@@ -16,5 +16,25 @@ namespace Snake
                 item.PrintPoint();
             }
         }
+
+        internal bool Collision(Shape shape)
+        {
+            foreach (var item in points)
+            {
+                if (shape.ComparePoints(item))
+                    return true;
+            }
+            return false;
+        }
+
+        private bool ComparePoints(Point point)
+        {
+            foreach (var item in points)
+            {
+                if (point.ComparePoints(item))
+                    return true;
+            }
+            return false;
+        }
     }
 }

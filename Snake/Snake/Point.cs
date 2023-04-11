@@ -61,5 +61,10 @@ namespace Snake
             Console.SetCursorPosition(left, top);
             Console.WriteLine(symbol);
         }
+
+        public bool ComparePoints(Point point)
+        {
+            return point.left == left && point.top == top;
+        }
     }
 }

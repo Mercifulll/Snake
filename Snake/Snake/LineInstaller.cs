@@ -23,6 +23,17 @@ namespace Snake
             shapes.Add(rightLine);
         }
 
+        public bool Collision(Shape shape)
+        {
+            foreach (var item in shapes)
+            {
+                if (item.Collision(shape))
+                    return true;
+
+            }
+            return false;
+        }
+
         public void PrintShapes()
         {
             foreach (var item in shapes)
