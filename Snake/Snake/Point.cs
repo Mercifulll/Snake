@@ -12,6 +12,17 @@ namespace Snake
         int top;
         char symbol;
 
+        public char Symbol
+        {
+            get { return symbol; }
+            set { symbol = value; }
+        }
+        public Point(Point tail)
+        {
+            left = tail.left;
+            top = tail.top;
+            symbol = tail.symbol;
+        }
 
         public Point(int left, int top, char symbol)
         {
@@ -20,6 +31,30 @@ namespace Snake
             this.symbol = symbol;
         }
 
+        public void SetDirection(int i, Direction direction)
+        {
+            switch (direction)
+            {
+                case Direction.Right:
+                    left = left + i;
+                    break;
+                case Direction.Left:
+                    left = left - i;
+                    break;
+                case Direction.Up:
+                    top = top - i;
+                    break;
+                case Direction.Down:
+                    top = top + i;
+                    break;
+            }
+        }
+
+        internal void ClearPoint()
+        {
+            symbol = ' ';
+            PrintPoint();
+        }
 
         public void PrintPoint()
         {

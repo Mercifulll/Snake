@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Snake
 {
-    class Shape
+    public class Shape
     {
         protected List<Point> points;
         public void PrintLine()

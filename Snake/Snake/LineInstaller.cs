@@ -22,6 +22,7 @@ namespace Snake
             shapes.Add(leftLine);
             shapes.Add(rightLine);
         }
+
         public void PrintShapes()
         {
             foreach (var item in shapes)
