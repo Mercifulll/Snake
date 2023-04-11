@@ -10,14 +10,11 @@ namespace Snake
     {
         static void Main(string[] args)
         {
-            HorizontalLine up = new HorizontalLine(0,0,120, '-');
-            up.PrintLine();
-            HorizontalLine down = new HorizontalLine(0, 20, 120, '-');
-            down.PrintLine();
-            VerticalLine left = new VerticalLine(0, 1, 20, '|');
-            left.PrintLine();
-            VerticalLine right = new VerticalLine(119, 1, 20, '|');
-            right.PrintLine();
+            LineInstaller line = new LineInstaller();
+            line.PrintShapes();
+
+            Point point = FoodFactory.RandFood(119, 20, Convert.ToChar(176));
+            point.PrintPoint();
         }
     }
 }
